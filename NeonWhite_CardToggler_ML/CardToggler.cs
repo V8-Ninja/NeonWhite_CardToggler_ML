@@ -37,14 +37,31 @@ namespace NeonWhite_CardToggler_ML
             bool toggledDOMN = Keyboard.current[CT_Globals.toggleDOMN.Value].wasPressedThisFrame;
             bool toggledBOLF = Keyboard.current[CT_Globals.toggleBOLF.Value].wasPressedThisFrame;
 
+            CT_Globals.ktnaEnabled = (toggledKTNA ? !CT_Globals.ktnaEnabled : CT_Globals.ktnaEnabled);
+            CT_Globals.prfyEnabled = (toggledPRFY ? !CT_Globals.prfyEnabled : CT_Globals.prfyEnabled);
+            CT_Globals.elvtEnabled = (toggledELVT ? !CT_Globals.elvtEnabled : CT_Globals.elvtEnabled);
+            CT_Globals.gdspEnabled = (toggledGDSP ? !CT_Globals.gdspEnabled : CT_Globals.gdspEnabled);
+            CT_Globals.stmpEnabled = (toggledSTMP ? !CT_Globals.stmpEnabled : CT_Globals.stmpEnabled);
+            CT_Globals.frblEnabled = (toggledFRBL ? !CT_Globals.frblEnabled : CT_Globals.frblEnabled);
+            CT_Globals.domnEnabled = (toggledDOMN ? !CT_Globals.domnEnabled : CT_Globals.domnEnabled);
+            CT_Globals.bolfEnabled = (toggledBOLF ? !CT_Globals.bolfEnabled : CT_Globals.bolfEnabled);
+
             if (toggledKTNA || toggledPRFY || toggledELVT || toggledGDSP || toggledSTMP || toggledFRBL
                 || toggledDOMN || toggledBOLF)
             {
                 string inputStr = "Input detected!\n\nKTNA: {0}\nPRFY: {1}\nELVT: {2}\nGDSP: {3}\n";
                 inputStr += "STMP: {4}\nFRBL: {5}\nDOMN: {6}\nBOLF: {7}\n\n";
 
-                inputStr = string.Format(inputStr, toggledKTNA, toggledPRFY, toggledELVT, toggledGDSP,
-                toggledSTMP, toggledFRBL, toggledDOMN, toggledBOLF);
+                inputStr = string.Format(inputStr,
+                    (toggledKTNA ? "> " : "") + CT_Globals.ktnaEnabled,
+                    (toggledPRFY ? "> " : "") + CT_Globals.prfyEnabled,
+                    (toggledELVT ? "> " : "") + CT_Globals.elvtEnabled,
+                    (toggledGDSP ? "> " : "") + CT_Globals.gdspEnabled,
+                    (toggledSTMP ? "> " : "") + CT_Globals.stmpEnabled,
+                    (toggledFRBL ? "> " : "") + CT_Globals.frblEnabled,
+                    (toggledDOMN ? "> " : "") + CT_Globals.domnEnabled,
+                    (toggledBOLF ? "> " : "") + CT_Globals.bolfEnabled
+                );
 
                 LoggerInstance.Msg(inputStr);
             }
@@ -61,5 +78,14 @@ namespace NeonWhite_CardToggler_ML
         public static MelonPreferences_Entry<Key> toggleFRBL;
         public static MelonPreferences_Entry<Key> toggleDOMN;
         public static MelonPreferences_Entry<Key> toggleBOLF;
+
+        public static bool ktnaEnabled = true;
+        public static bool prfyEnabled = true;
+        public static bool elvtEnabled = true;
+        public static bool gdspEnabled = true;
+        public static bool stmpEnabled = true;
+        public static bool frblEnabled = true;
+        public static bool domnEnabled = true;
+        public static bool bolfEnabled = true;
     }
 }
