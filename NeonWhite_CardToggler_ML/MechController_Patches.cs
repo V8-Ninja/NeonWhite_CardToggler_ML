@@ -53,12 +53,13 @@ namespace NeonWhite_CardToggler_ML
     [HarmonyPatch(typeof(MechController), nameof(MechController.ForceSetup))]
     public static class ForceSetup_Patch
     {
-        private static void Postfix()
+        private static void Postfix(ref bool ____gotFistsCard)
         {
             if (!CT_Globals.ktnaEnabled)
             {
                 PlayerCardData fistCard = Singleton<Game>.Instance.GetGameData().GetCard("FISTS");
                 RM.mechController.OnPickupCard(fistCard, -1);
+                ____gotFistsCard = true;
             }
         }
     }

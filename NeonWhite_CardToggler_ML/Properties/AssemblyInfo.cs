@@ -4,7 +4,7 @@ using System.Runtime.InteropServices;
 using MelonLoader;
 using NeonWhite_CardToggler_ML;
 
-[assembly: MelonInfo(typeof(CardToggler), "NeonWhite_CardToggler_ML", "0.2", "V8_Ninja")]
+[assembly: MelonInfo(typeof(CardToggler), "NeonWhite_CardToggler_ML", "0.2.0", "V8_Ninja")]
 [assembly: MelonGame("Little Flag Software, LLC", "Neon White")]
 
 // General Information about an assembly is controlled through the following
